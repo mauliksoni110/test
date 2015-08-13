@@ -10,12 +10,26 @@
   <body>
     <div id="map" style="height:500px;"></div>
     <script type="text/javascript">
-    	var basic = new Datamap({
-		  element: document.getElementById("map"),
-		   geographyConfig: {
-		    highlightOnHover: false
-		  },
-		});
+      var basic = new Datamap({
+      element: document.getElementById("map"),
+       geographyConfig: {
+        highlightOnHover: true,
+        highlightFillColor: 'rgb(171, 221, 164)',
+        highlightBorderColor: 'rgba(255,255,255,1)',
+          highlightBorderWidth: 1,
+          popupTemplate: function(geography, data) { //this function should just return a string
+            return '<div class="hoverinfo"><strong>' + data.name + '</strong></div>';
+          },
+      },
+      fills: {
+        defaultFill: "#ABDDA4",
+        authorHasTraveledTo: "#333"
+      },
+      data: {
+        IND:  {name:"My INDIA!",highlightFillColor: 'red',},
+        RUS: {name:"MY RUSIA",highlightFillColor: 'blue',}
+      }
+    });
     </script>
   </body>
 </html>
